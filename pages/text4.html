@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三个页面</title>
+
+    <title></title>
+    
+
+    
+    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    
+
+
+
+
+	<!-- Bootstrap Styles-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+   <link href="../assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+  
+       <!-- Custom Styles-->
+   <link href="../assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- TABLE STYLES-->
+   <link href="../assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+
+   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+
+   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+   
+    <!-- dierge -->
+    
+    </head>
+<body>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">从大数据来看新能源汽车的销售</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li ><a href="#">首页</a></li>
+                <li ><a href="#">功能一</a></li>
+                <li class="active"><a href="#">功能二</a></li>
+                
+            </ul>
+        </div>
+        </div>
+    </nav>
+        <br>
+        <br>
+        <br>
+        <div class="container" style="background-color: #fff;">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            用户行为预测 <small>基于FGgrowthDemo</small>
+                        </h1>
+                        <hr>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-7 col-md-offset-2">
+                            <div class="panel panel-default" style="background-color: #000;">
+                                <div class="panel-heading">
+                                    结果显示面板
+                                </div>
+                                <div class="panel-body" style="height: 400px;color:#fff">
+                                    上传内容
+                                    <p id="txt" style="display: none;"></p>
+                                    <p id="txt1" style="display: none;"></p>
+                                    <p id="txt2" style="display: none;"></p>
+                                    <div class="progress progress-striped active" style="margin: 0px;display: none;margin-top: 10px;"
+                                    id="JinDu_kuang">
+                                        <div class="progress-bar progress-bar-primary" role="progressbar"
+                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: 0%;"
+                                             id="JinDu" >
+                                            
+                                        </div>
+                                    </div>
+                                    <p style="padding: 0px;display: none;" id="JinDu_txt">正在分析用户评价</p>
+                                    <p style="display: none;" id="JinDu_res"></p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- 参数 -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="font-size: 24px;">
+                                输入面板
+                            </div>
+                            
+                            <div class="panel-body">
+                                <form role = "form" style="padding: 20px;">
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group" style="margin-bottom: 0px;">
+                                                    <label style="padding-bottom: 5px;font-size: 18px;">选择客户所体验的汽车</label>
+                                                    <select class="form-control" id="the0">
+                                                        <option>比亚迪·汉</option>
+                                                        <option>比亚迪·秦PLUS</option>
+                                                        <option>比亚迪·唐</option>
+                                                    </select>
+                                                </div>
+                                                <p class="help-block" style="padding: 0px;">| 其它品牌请在功能一提交数据后再使用</p>
+                                                <label style="padding-bottom: 5px;font-size: 18px;">请输入顾客对于汽车的评分（满分100）</label>
+                                                <p class="help-block" style="padding: 0px;">| 本部分数据由销售人员或顾客进行评价</p>
+                                                <div class="form-group">
+                                                    <label>电池技术性能（电池耐用和充电方便）满意度得分a1</label>
+                                                    <input class="form-control " id="the1">    
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>舒适性（环保与空间座椅）整体表现满意度得分a2</label>
+                                                    <input class="form-control"id="the2">    
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>经济性（耗能与保值率）整体满意度得分a3</label>
+                                                    <input class="form-control"id="the3">    
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>安全性表现（刹车和行车视野）整体满意度得分a4</label>
+                                                    <input class="form-control"id="the4">    
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>动力性表现（爬坡和加速）整体满意度得分a5</label>
+                                                    <input class="form-control" id="the5">    
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>驾驶操控性表现（转弯和高速的稳定性）整体满意度得分a6</label>
+                                                    <input class="form-control" id="the6">    
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>外观内饰整体表现满意度得分a7</label>
+                                                    <input class="form-control" id="the7">    
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>配置与质量品质整体满意度得分a8</label>
+                                                    <input class="form-control" id="the8">    
+                                                </div>
+                                                <!-- 个人信息 -->
+                                                <label style="padding-bottom: 5px;font-size: 18px;">请输入用户的信息</label>
+                                                <p class="help-block" style="padding: 0px;">| 本部分数据由顾客填写</p>
+                                                <div class="form-group" style="margin: 0px;padding: 0px;">
+                                                    <label style="margin-top: 15px;">B1 【单选】您的户口情况如何？</label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked="">1
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">2
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3">3
+                                                    </label>
+                                                </div>
+                                                <p class="help-block" style="padding: 0px;margin: 0px;">1 表示户口在老家；2表示户口在本城市，3表示其他</p>
+                                                
+                                                <div class="form-group" style="margin-top: 15px;">
+                                                    <label>B2 【开放题】请问您在本城市居住了多少年？</label>
+                                                    <input class="form-control"  id="tth2">    
+                                                </div>
+                                                <div class="form-group" style="margin: 0px;padding: 0px;">
+                                                    <label style="margin-top: 15px;">B3 【单选】请问，您的居住在以下哪个区域：</label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline1" id="optionsRadiosInline11" value="option1" checked="">1
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline1" id="optionsRadiosInline21" value="option2">2
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline1" id="optionsRadiosInline31" value="option3">3
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline1" id="optionsRadiosInline41" value="option3">4
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline1" id="optionsRadiosInline51" value="option3">5
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline1" id="optionsRadiosInline61" value="option3">6
+                                                    </label>
+                                                </div>
+                                                <p class="help-block" style="padding: 0px;margin: 0px;">1 表示市中心，2表示非市中心的城区，3表示城乡结合部，4表示县城，5表示乡镇中心地带，6表示农村</p>
+
+                                                <div class="form-group" style="margin-top: 15px;">
+                                                    <label>B4 请问您的驾龄是：___年</label>
+                                                    <input class="form-control" id="tth4">    
+                                                </div>
+
+                                                
+                                                
+
+
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group" style="margin-top: 15px;">
+                                                    <label>B5 请问您家里有几口人？（这里指经常居住在一起的家庭成员人数，且不包括保姆。记录：___人）</label>
+                                                    <input class="form-control" id="tth5">    
+                                                </div>
+
+                                                <div class="form-group" style="margin: 0px;padding: 0px;">
+                                                    <label style="margin-top: 15px;">B6 【单选】 您的婚姻家庭符合以下哪种情况？</label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline2" id="optionsRadiosInline12" value="option1" checked="">1
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline2" id="optionsRadiosInline22" value="option2">2
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline2" id="optionsRadiosInline32" value="option3">3
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline2" id="optionsRadiosInline42" value="option3">4
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline2" id="optionsRadiosInline52" value="option3">5
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline2" id="optionsRadiosInline62" value="option3">6
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline2" id="optionsRadiosInline72" value="option3">7
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline2" id="optionsRadiosInline72" value="option3">8
+                                                    </label>
+                                                </div>
+                                                <p class="help-block" style="padding: 0px;margin: 0px;">1表示“未婚，单独居住”，2表示“未婚，与父母同住”，3表示“已婚/同居无子女（两人世界）”，4表示“已婚/同居无子女（与父母同住）”，5表示“已婚，有小孩，不与父母同住”，6表示“已婚，有小孩，与父母同住”，7表示“离异/丧偶”，8表示“其他”。</p>
+
+                                                <div class="form-group" style="margin-top: 15px;">
+                                                    <label>B7 请问您有几个孩子？ ___个</label>
+                                                    <input class="form-control" id="tth7">    
+                                                </div>
+
+                                                <div class="form-group" style="margin-top: 15px;">
+                                                    <label>B8请问您的出生年？  ___年</label>
+                                                    <input class="form-control" id="tth8">    
+                                                </div>
+
+
+                                                <div class="form-group" style="margin: 0px;padding: 0px;">
+                                                    <label style="margin-top: 15px;">B9 【单选】请问您的最高学历是？</label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline3" id="optionsRadiosInline13" value="option1" checked="">1
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline3" id="optionsRadiosInline23" value="option2">2
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline3" id="optionsRadiosInline33" value="option3">3
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline3" id="optionsRadiosInline43" value="option3">4
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline3" id="optionsRadiosInline53" value="option3">5
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline3" id="optionsRadiosInline63" value="option3">6
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline3" id="optionsRadiosInline73" value="option3">7
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline3" id="optionsRadiosInline83" value="option3">8
+                                                    </label>
+                                                </div>
+                                                <p class="help-block" style="padding: 0px;margin: 0px;"> 1表示“未受过正式教育”，2表示“小学”，3表示“初中”，4表示“高中/中专/技校”，5表示“大专”，6表示“本科”，8表示“双学位/研究生及以上”。</p>
+
+                                                <div class="form-group" style="margin-top: 15px;">
+                                                    <label>B10请问您的工作年限？指从毕业后正式参加工作到现在为止。___年</label>
+                                                    <input class="form-control" id="tth10">    
+                                                </div>
+
+
+                                                <div class="form-group" style="margin: 0px;padding: 0px;">
+                                                    <label style="margin-top: 15px;">B11 您所在单位的性质是：</label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline4" id="optionsRadiosInline14" value="option1" checked="">1
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline4" id="optionsRadiosInline24" value="option2">2
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline4" id="optionsRadiosInline34" value="option3">3
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline4" id="optionsRadiosInline44" value="option3">4
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline4" id="optionsRadiosInline54" value="option3">5
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline4" id="optionsRadiosInline64" value="option3">6
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline4" id="optionsRadiosInline74" value="option3">7
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline4" id="optionsRadiosInline84" value="option3">8
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline4" id="optionsRadiosInline94" value="option3">9
+                                                    </label>
+                                                </div>
+                                                <p class="help-block" style="padding: 0px;margin: 0px;"> 1表示“机关单位/政府部门”，2表示“科研/医疗/教育/卫生事业单位”，3表示“国有企业”，4表示“私营/民营（雇人大于8人）”，5表示“外资企业”，6表示“个体户/小型企业”，7表示“自由职业者”，8表示“合资企业”,9表示“不工作”。</p>
+
+
+                                                <div class="form-group" style="margin: 0px;padding: 0px;">
+                                                    <label style="margin-top: 15px;">B12 【单选】您的职位是：</label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline5" id="optionsRadiosInline15" value="option1" checked="">1
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline5" id="optionsRadiosInline25" value="option2">2
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline5" id="optionsRadiosInline35" value="option3">3
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline5" id="optionsRadiosInline45" value="option3">4
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline5" id="optionsRadiosInline55" value="option3">5
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline5" id="optionsRadiosInline65" value="option3">6
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline5" id="optionsRadiosInline75" value="option3">7
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline5" id="optionsRadiosInline85" value="option3">8
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline5" id="optionsRadiosInline95" value="option3">9
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline5" id="optionsRadiosInline105" value="option3">10
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline5" id="optionsRadiosInline115" value="option3">11
+                                                    </label>
+                                                </div>
+                                                <p class="help-block" style="padding: 0px;margin: 0px;"> 1表示“老板”，2表示“中层管理者”，3表示“资深技术人员”，4表示“中级技术人员”，5表示“初级技术人员”，6表示“资深职员”，7表示“中级职员”，8表示“初级职员”,9表示“个体户”,10表示“自由职业者”,11表示“其它”。</p>
+
+                                                <div class="form-group" style="margin-top: 15px;">
+                                                    <label>B13 您的家庭年收入。记录具体： ___ 万元</label>
+                                                    <input class="form-control" id="tth13">    
+                                                </div><div class="form-group" style="margin-top: 15px;">
+                                                    <label>B14 您的个人年收入。记录具体： ___ 万元</label>
+                                                    <input class="form-control" id="tth14">    
+                                                </div><div class="form-group" style="margin-top: 15px;">
+                                                    <label>B15 您家庭的可支配年收入。记录具体： ___ 万元  （家庭可支配收入包括娱乐、购物、生活费、交通费等支出，不包括房贷、车贷、水电费、小孩学费等每月固定支出）</label>
+                                                    <input class="form-control" id="tth15">    
+                                                </div><div class="form-group" style="margin-top: 15px;">
+                                                    <label>B16 您全年房贷的支出占家庭年总收入的比例是多少？记录具体：___%</label>
+                                                    <input class="form-control" id="tth16">    
+                                                </div><div class="form-group" style="margin-top: 15px;">
+                                                    <label>B17 您全年车贷的支出占家庭年总收入的比例是多少？记录具体：___%</label>
+                                                    <input class="form-control" id="tth17">    
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-4 ">
+                                            <button type="submit" class="btn btn-default" id="but1">提交按钮</button>
+                                            <button type="reset" class="btn btn-default" id="but2">重置按钮</button>
+                                        </div>
+                                    </div>
+                                    
+                                
+                                    </div>
+                                    <!-- /.col-lg-6 (nested) -->
+                                </div>
+                                <!-- /.row (nested) -->
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- 参数 -->               
+        </div>
+
+
+    
+
+
+
+</body>
+<script>
+    
+
+    let but1 = document.getElementById("but1");
+    
+    but1.addEventListener('click',function(){
+        alert("点击")
+
+        
+        let the0 = document.getElementById('the0');
+        let str = "顾客选择的汽车品牌：" + the0.value;
+        let txt = document.getElementById('txt');
+        txt.style.display = 'block';
+        txt.innerHTML = str;
+        
+        let the1 = document.getElementById('the1');
+        let the2 = document.getElementById('the2');
+        let the3 = document.getElementById('the3');
+        let the4 = document.getElementById('the4');
+        let the5 = document.getElementById('the5');
+        let the6 = document.getElementById('the6');
+        let the7 = document.getElementById('the7');
+        let the8 = document.getElementById('the8');
+
+        // try{
+            
+        // }catch(err){
+        //     alert("请检查输入是否完整，输入不能为空")
+        // }
+        let str1 = "顾客的评分：a1:" + the1.value + "分；a2："+the2.value
+        + "分；a3："+the3.value
+        + "分；a4："+the4.value
+        + "分；a5："+the5.value
+        + "分；a6："+the6.value
+        + "分；a7："+the7.value
+        + "分；a8："+the8.value
+        + "分；"
+        ;
+        let JinDu_res = document.getElementById('JinDu_res');
+        JinDu_res.style.display = 'block';
+        let average = Number(the1.value)+Number(the2.value)+Number(the3.value)+Number(the4.value)+Number(the5.value)+Number(the6.value)+Number(the7.value)+Number(the8.value);
+        if(average >90){
+            JinDu_res.innerHTML = "顾客的综合评价得分："+ (average/8) +" ；较为满意"+"，预测结果为：该顾客会购买"+the0.value;
+        }else{
+            JinDu_res.innerHTML = "顾客的综合评价得分："+ (average/8) +" ；不是很满意"+"，预测结果为：该顾客不会会购买"+the0.value+"\n原因分析";
+        }
+        // clearInterval(timer)
+        if(the1.value == '' || the2.value == ''
+        || the3.value == ''
+        || the4.value == ''
+        || the5.value == ''
+        || the6.value == ''
+        || the7.value == ''
+        || the8.value == ''){
+            alert("请检查输入是否完整，输入不能为空")
+            return
+        }
+        let txt1 = document.getElementById('txt1');
+        txt1.style.display = 'block';
+        txt1.innerHTML = str1;
+        
+        let tth1 = document.getElementsByName('optionsRadiosInline');
+        let tth1_value = -1;
+        for(let i=0;i<tth1.length;i++){
+            if(tth1[i].checked){
+                tth1_value = i;
+            }
+        }
+        // alert(tth1_value + 1);
+
+        let tth2 = document.getElementById('tth2');
+
+        let tth3 = document.getElementsByName('optionsRadiosInline1');
+        let tth3_value = -1;
+        for(let i=0;i<tth3.length;i++){
+            if(tth3[i].checked){
+                tth3_value = i;
+            }
+        }
+        // alert(tth3_value + 1);
+        let tth4 = document.getElementById('tth4');
+        let tth5 = document.getElementById('tth5');
+
+        let tth6 = document.getElementsByName('optionsRadiosInline2');
+        let tth6_value = -1;
+        for(let i=0;i<tth6.length;i++){
+            if(tth6[i].checked){
+                tth6_value = i;
+            }
+        }
+        // alert(tth6_value + 1);
+
+        let tth7 = document.getElementById('tth7');
+        let tth8 = document.getElementById('tth8');
+
+        let tth9 = document.getElementsByName('optionsRadiosInline3');
+        let tth9_value = -1;
+        for(let i=0;i<tth9.length;i++){
+            if(tth9[i].checked){
+                tth9_value = i;
+            }
+        }
+        // alert(tth9_value + 1);
+
+        let tth10 = document.getElementById('tth10');
+
+        let tth11 = document.getElementsByName('optionsRadiosInline4');
+        let tth11_value = -1;
+        for(let i=0;i<tth11.length;i++){
+            if(tth11[i].checked){
+                tth11_value = i;
+            }
+        }
+        // alert(tth11_value + 1);
+
+        let tth12 = document.getElementsByName('optionsRadiosInline5');
+        let tth12_value = -1;
+        for(let i=0;i<tth12.length;i++){
+            if(tth12[i].checked){
+                tth12_value = i;
+            }
+        }
+        // alert(tth12_value + 1);
+        
+        let tth13 = document.getElementById('tth13');
+        let tth14= document.getElementById('tth14');
+        let tth15 = document.getElementById('tth15');
+        let tth16 = document.getElementById('tth16');
+        let tth17 = document.getElementById('tth17');
+
+
+
+        let str2 = "顾客的个人信息：1-" + (tth1_value+1) + "；B2-"+tth2.value
+        + "；B3-"+(tth3_value+1)
+        + "；B4-"+tth4.value
+        + "；B5-"+tth5.value
+        + "；B6-"+(tth6_value+1)
+        + "；B7-"+tth7.value
+        + "；B8-"+tth8.value
+        + "；B9-"+(tth9_value+1)
+        + "；B10-"+tth10.value
+        + "；B11-"+(tth11_value+1)
+        + "；B12-"+(tth12_value+1)
+        + "；B13-"+tth13.value
+        + "；B14-"+tth14.value
+        + "；B15-"+tth15.value
+        + "；B16-"+tth16.value
+        + "；B17-"+tth17.value
+        + "；"
+        ;
+        if(tth2.value == '' || tth4.value == ''
+        || tth5.value == ''
+        || tth7.value == ''
+        || tth8.value == ''
+        || tth10.value == ''
+        || tth13.value == ''
+        || tth14.value == ''
+        || tth15.value == ''
+        || tth16.value == ''
+        || tth17.value == ''){
+            alert("请检查输入是否完整，输入不能为空")
+            return
+        }
+        let txt2 = document.getElementById('txt2');
+        txt2.style.display = 'block';
+        txt2.innerHTML = str2;
+
+        let JinDu_kuang = document.getElementById('JinDu_kuang')
+        JinDu_kuang.style.display = 'block';
+        let JinDu = document.getElementById('JinDu');
+        JinDu.style.display = 'block';
+        let JinDu_txt = document.getElementById('JinDu_txt');
+        JinDu_txt.style.display = 'block';
+        let i = 0;
+        let percent = 0;
+        // 开启定时器
+        let timer = setInterval(function(){
+            // 修改src属性
+            percent += 0.1;
+            JinDu.style.width = percent + '%';
+            if(percent >= 33 && percent<=66){
+                JinDu_txt.innerHTML = the0.value+"的强关联规则为：a3-a7-B12-B13-B14";
+            }
+            if(percent>66 && percent<100){
+                JinDu_txt.innerHTML = "正在综合分析顾客是否会购买"+the0.value;
+            }
+            if(percent >200){
+                
+                JinDu_txt.innerHTML = '分析完成';
+                // 分析结果：
+                
+            }
+        },10)
+        alert('xia')
+
+
+    })
+    let but2 = document.getElementById("but2");
+    
+    but2.addEventListener('click',function(){
+        let txt = document.getElementById('txt');
+        txt.style.display = 'none';
+        let txt1 = document.getElementById('txt1');
+        txt1.style.display = 'none';
+        let txt2 = document.getElementById('txt2');
+        txt2.style.display = 'none';
+    })
+</script>
+</html>
